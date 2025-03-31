@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             <div className="w-full h-full overflow-hidden rounded-md">
               {/* Replace the placeholder URL with your actual image */}
               <img 
-                src="/bhuvan.jpg" 
+                src="/bk.jpg" 
                 alt="Profile" 
                 className="w-full h-full object-cover"
               />
