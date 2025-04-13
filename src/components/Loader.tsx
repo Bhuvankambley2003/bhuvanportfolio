@@ -413,7 +413,7 @@ const Loader = () => {
       right: 0;
       bottom: 0;
       z-index: 99;
-      background: radial-gradient(circle at 50% 35%, #002a3d, #00171f);
+      background: radial-gradient(circle at 50% 35%,rgb(243, 246, 247), #00171f);
       display: flex;
       justify-content: center;
       align-items: center;
