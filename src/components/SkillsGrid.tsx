@@ -1,30 +1,17 @@
 import React from 'react';
-import { Code } from 'lucide-react';
-
-interface SkillItemProps {
-  name: string;
-}
 
 interface SkillCategoryProps {
   title: string;
   skills: string[];
 }
 
-const SkillItem: React.FC<SkillItemProps> = ({ name }) => {
-  return (
-    <div className="py-3 px-4 bg-foreground/5 rounded-lg transition-all hover:bg-accent/10 hover:text-accent hover:-translate-y-0.5 hover:border-accent/20 border border-transparent">
-      <span className="font-medium">{name}</span>
-    </div>
-  );
-};
-
 const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills }) => {
   return (
-    <div className="mb-8 last:mb-0">
-      <h4 className="text-lg font-semibold mb-4 text-gradient-soft text-left">{title}</h4>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+    <div className="mb-4">
+      <h4 className="text-base font-medium mb-2">{title}</h4>
+      <div className="grid grid-cols-2">
         {skills.map((skill, index) => (
-          <SkillItem key={index} name={skill} />
+          <div key={index} className="text-sm">{skill}</div>
         ))}
       </div>
     </div>
@@ -32,7 +19,6 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills }) => {
 };
 
 const SkillsGrid: React.FC = () => {
-  // Skills organized by category
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -53,19 +39,9 @@ const SkillsGrid: React.FC = () => {
   ];
 
   return (
-    <div className="animate-fade-in">
-      {/* Center-aligned title */}
-      <div className="flex items-center gap-3 mb-8 justify-center">
-      <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-accent to-accent/50 text-white">
-        <Code size={22} />
-      </div>
-      <h3 className="text-2xl font-display font-bold text-gradient-soft">
-        Technical Skills
-      </h3>
-        </div>
-      
-      {/* Skills grid */}
-      <div className="glass-card rounded-xl p-6 bg-background/80 backdrop-blur-sm border border-foreground/10 shadow-lg">
+    <div>
+      <h3 className="text-lg font-bold text-center mb-6">Technical Skills</h3>
+      <div className="max-w-2xl mx-auto">
         {skillCategories.map((category, index) => (
           <SkillCategory 
             key={index} 

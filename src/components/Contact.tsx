@@ -52,16 +52,16 @@ const Contact: React.FC = () => {
           </motion.p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-10">
           {/* Contact Form */}
-          <motion.div 
+          {/* <motion.div 
             className="lg:col-span-3"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-          >
-            <motion.div 
+          > */}
+            {/* <motion.div 
               className="glass-card rounded-2xl p-8 shadow-lg overflow-hidden relative"
               whileHover={{ boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -183,19 +183,19 @@ const Contact: React.FC = () => {
                   </motion.div>
                 </motion.div>
               </form>
-            </motion.div>
-          </motion.div>
+            </motion.div> */}
+          {/* </motion.div> */}
           
           {/* Contact Info */}
           <motion.div 
-            className="lg:col-span-2 flex flex-col space-y-6"
+            className="lg:col-span-2 flex flex-col space-y-6 mx-auto px-2 sm:px-4 md:px-8 text-center"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
             <motion.div 
-              className="glass-card rounded-2xl p-8 flex-1 shadow-lg"
+              className="rounded-2xl p-4 sm:p-6 md:p-8 flex-1 shadow-lg bg-transparent md:bg-foreground/5"
               whileHover={{ boxShadow: "0 15px 30px rgba(0,0,0,0.1)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
@@ -211,181 +211,48 @@ const Contact: React.FC = () => {
               
               <div className="space-y-6">
                 <motion.div 
-                  className="flex items-start gap-4"
+                  className="text-center"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.45 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <motion.div 
-                    className="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-lg bg-accent/10 flex items-center justify-center text-accent"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(var(--accent), 0.2)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  <p className="text-xs md:text-sm text-foreground/60 mb-1">Email</p>
+                  <a 
+                    href="mailto:pbhuvankambley2003@gmail.com" 
+                    className="text-xs md:text-sm lg:text-lg text-foreground font-medium hover:text-accent transition-colors break-words"
                   >
-                    <Mail size={18} />
-                  </motion.div>
-                  <div className="flex-1 text-left">
-                    <p className="text-xs md:text-sm text-foreground/60 mb-1">Email</p>
-                    <a 
-                      href="mailto:pbhuvankambley2003@gmail.com" 
-                      className="text-sm md:text-lg text-foreground font-medium hover:text-accent transition-colors break-words"
-                    >
-                      pbhuvankambley2003@gmail.com
-                    </a>
-                  </div>
+                    pbhuvankambley2003@gmail.com
+                  </a>
                 </motion.div>
                 
                 <motion.div 
-                  className="flex items-start gap-4 text-left"
+                  className="text-center"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <motion.div 
-                    className="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-lg bg-accent/10 flex items-center justify-center text-accent"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(var(--accent), 0.2)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  <p className="text-xs md:text-sm text-foreground/60 mb-1">Phone</p>
+                  <a 
+                    href="tel:+919110260591" 
+                    className="text-sm md:text-lg text-foreground font-medium hover:text-accent transition-colors"
                   >
-                    <Phone size={18} />
-                  </motion.div>
-                  <div className="flex-1">
-                    <p className="text-xs md:text-sm text-foreground/60 mb-1">Phone</p>
-                    <a 
-                      href="tel:+919110260591" 
-                      className="text-sm md:text-lg text-foreground font-medium hover:text-accent transition-colors"
-                    >
-                      +91 9110260591
-                    </a>
-                  </div>
+                    +91 9110260591
+                  </a>
                 </motion.div>
                 
                 <motion.div 
-                  className="flex items-start gap-4"
+                  className="text-center"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.55 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <motion.div 
-                    className="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-lg bg-accent/10 flex items-center justify-center text-accent"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(var(--accent), 0.2)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <MapPin size={18} />
-                  </motion.div>
-                  <div className="flex-1 text-left">
-                    <p className="text-xs md:text-sm text-foreground/60 mb-1">Location</p>
-                    <p className="text-sm md:text-lg text-foreground font-medium">Bengaluru, India</p>
-                  </div>
+                  <p className="text-xs md:text-sm text-foreground/60 mb-1">Location</p>
+                  <p className="text-sm md:text-lg text-foreground font-medium">Bengaluru, India</p>
                 </motion.div>
               </div>
-              
-              <motion.div 
-                className="mt-8 pt-6 border-t border-foreground/5 display-flex"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-xs md:text-sm text-foreground/60 mb-4">Find me on social media</p>
-                <div className="flex gap-3">
-                  <a
-                    href="#"
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full invisible"
-                    aria-hidden="true"
-                  ></a>
-                  <a
-                    href="#"
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full invisible"
-                    aria-hidden="true"
-                  ></a>
-                  
-                  <motion.a 
-                    href="https://github.com/Bhuvankambley2003" 
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-foreground/5 hover:bg-accent/10 hover:text-accent flex items-center justify-center transition-colors border border-foreground/10"
-                    aria-label="GitHub Profile"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Github size={16} />
-                  </motion.a>
-                  <motion.a 
-                    href="https://www.linkedin.com/in/bhuvankambley/" 
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-foreground/5 hover:bg-accent/10 hover:text-accent flex items-center justify-center transition-colors border border-foreground/10"
-                    aria-label="LinkedIn Profile"
-                    whileHover={{ scale: 1.2, rotate: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Linkedin size={16} />
-                  </motion.a>
-                  <motion.a 
-                    href="https://x.com/BKambley" 
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-foreground/5 hover:bg-accent/10 hover:text-accent flex items-center justify-center transition-colors border border-foreground/10"
-                    aria-label="Twitter Profile"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Twitter size={16} />
-                  </motion.a>
-                </div>
-              </motion.div>
-            </motion.div>
-            
-            <motion.div 
-              className="glass-card rounded-2xl p-8 bg-gradient-to-br from-accent to-blue-600 text-white shadow-lg overflow-hidden relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                y: -5,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
-              }}
-            >
-              <div className="absolute top-0 right-0 opacity-10">
-                <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#fff" d="M0 97.6L60 0h80v140H0z" />
-                </svg>
-              </div>
-              
-              <motion.h3 
-                className="text-xl font-display font-bold mb-3"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Available for Opportunities
-              </motion.h3>
-              <motion.p 
-                className="text-white/90 mb-6 max-w-sm"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.9 }}
-                viewport={{ once: true }}
-              >
-                I'm currently available for freelance projects and full-time positions. Let's build something amazing together.
-              </motion.p>
-              <motion.a 
-                href="mailto:pbhuvankambley2003@gmail.com" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-accent font-medium rounded-lg hover:bg-white/90 transition-colors group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 1.0 }}
-                viewport={{ once: true }}
-              >
-                <span>Let's Talk</span>
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </motion.a>
             </motion.div>
           </motion.div>
         </div>

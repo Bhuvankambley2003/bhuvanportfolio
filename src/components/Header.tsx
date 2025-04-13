@@ -115,7 +115,7 @@ const Header: React.FC = () => {
               <Button 
                 className="rounded-full gap-2 font-medium" 
                 size="lg"
-                onClick={() => window.open('https://drive.google.com/file/d/1ECDq5qDRqDN_U5NJ1LqLBiMEblQma3NF/view', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/1EpeFl013GIgCXhDDI5-LkPpKOAeblrjV/view?usp=sharing', '_blank')}
               >
                 <FileText size={18} />
                 Download Resume
@@ -183,7 +183,7 @@ const Header: React.FC = () => {
       
       {/* Scroll Indicator */}
       <motion.div 
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center hidden md:flex"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
