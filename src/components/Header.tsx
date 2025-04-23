@@ -115,7 +115,7 @@ const Header: React.FC = () => {
               <Button 
                 className="rounded-full gap-2 font-medium" 
                 size="lg"
-                onClick={() => window.open('/public/bhuvankambley-dev.pdf', '_blank')}
+                onClick={() => window.open('/bhuvankambley-dev.pdf', '_blank')}
               >
                 <FileText size={18} />
                 Resume
