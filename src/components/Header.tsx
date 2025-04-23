@@ -115,10 +115,10 @@ const Header: React.FC = () => {
               <Button 
                 className="rounded-full gap-2 font-medium" 
                 size="lg"
-                onClick={() => window.open('https://drive.google.com/file/d/1EpeFl013GIgCXhDDI5-LkPpKOAeblrjV/view?usp=sharing', '_blank')}
+                onClick={() => window.open('/public/bhuvankambley-dev.pdf', '_blank')}
               >
                 <FileText size={18} />
-                Download Resume
+                Resume
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
