@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Github, Linkedin, Twitter, FileText, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Twitter, FileText, Mail , Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -9,54 +9,75 @@ const Header: React.FC = () => {
       id="home" 
       className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-16 code-effect"
     >
-      <div className="max-w-5xl w-full mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-20">
-        {/* Profile Photo Container */}
+      {/* Social icons with vertical line starting from bottom */}
+      <motion.div 
+        className="fixed left-[100px] bottom-0 z-10 hidden lg:flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        {/* Vertical line - starting from bottom and going up 20% */}
         <motion.div 
-          className="flex-shrink-0 relative"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div 
-            className="w-64 h-80 md:w-80 md:h-96 relative z-10 overflow-hidden rounded-md shadow-xl bg-gradient-to-br from-accent/5 to-accent/30 p-1 transition-all duration-300 hover:shadow-accent/20 hover:shadow-2xl"
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="w-full h-full overflow-hidden rounded-md">
-              {/* Replace the placeholder URL with your actual image */}
-              <img 
-                src="/bk.jpg" 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* Animated dots */}
-            <div className="absolute -bottom-2 -right-2 flex gap-1">
-              <div className="h-3 w-3 rounded-full bg-accent animate-pulse-soft"></div>
-              <div className="h-3 w-3 rounded-full bg-accent/80 animate-pulse-soft" style={{ animationDelay: '0.3s' }}></div>
-              <div className="h-3 w-3 rounded-full bg-accent/60 animate-pulse-soft" style={{ animationDelay: '0.6s' }}></div>
-            </div>
-          </motion.div>
-          
-          {/* Decorative elements */}
-          <motion.div 
-            className="absolute -top-5 -left-5 w-full h-full rounded-md border-2 border-dashed border-accent/20 z-0"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          />
-          <motion.div 
-            className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-md z-0 animate-pulse-soft"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          />
-        </motion.div>
+          className="w-[2px] h-[20vh] bg-gradient-to-t from-foreground/10 via-foreground/15 to-foreground/5 mb-4"
+          initial={{ height: 0 }}
+          animate={{ height: "20vh" }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+        />
         
-        {/* Text Content */}
+        {/* Social Links - Positioned above the line */}
         <motion.div 
-          className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl"
+          className="flex flex-col items-center gap-5 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+        >
+          <motion.a 
+            href="https://github.com/Bhuvankambley2003" 
+            className="p-3.0 rounded-full "
+            aria-label="GitHub Profile"
+            whileHover={{ scale: 1.4, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Github size={25} className="text-foreground/80" />
+          </motion.a>
+          <motion.a 
+            href="https://www.linkedin.com/in/bhuvankambley/" 
+            className="p-3.0 rounded-full"
+            aria-label="LinkedIn Profile"
+            whileHover={{ scale: 1.2, rotate: -5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Linkedin size={25} className="text-foreground/80" />
+          </motion.a>
+          <motion.a 
+            href="https://x.com/BKambley" 
+            className="p-3.0 rounded-full "
+            aria-label="Twitter Profile"
+            whileHover={{ scale: 1.2, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Twitter size={25} className="text-foreground/80" />
+          </motion.a>
+          <motion.a 
+            href="https://instagram.com/bhuvan__kambley" 
+            className="p-3.0 rounded-full"
+            aria-label="Twitter Profile"
+            whileHover={{ scale: 1.2, rotate: -5 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Instagram size={25} className="text-foreground/80" />
+          </motion.a>
+        </motion.div>
+      </motion.div>
+      
+      <div className="max-w-5xl w-full mx-auto flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24">
+        {/* Text Content - Now left aligned */}
+        <motion.div 
+          className="flex flex-col items-start text-left max-w-2xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -71,58 +92,110 @@ const Header: React.FC = () => {
             <span>Software Engineer</span>
           </motion.div>
           
+
           <motion.h1 
-            className="text-4xl md:text-6xl font-display font-bold tracking-tight"
+            className="text-2xl md:text-4xl font-display tracking-tight ml-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <motion.span 
-              className="block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Hello, I'm
-            </motion.span>
-            <motion.span 
-              className="block mt-2 text-gradient"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              Bhuvan Kambley
-            </motion.span>
+              <motion.span 
+                className="inline"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Hello👋, my name is 
+              </motion.span>
+          </motion.h1>
+          
+          <motion.h1 
+            className="text-3xl mt-4 md:text-6xl font-display font-bold tracking-tight ml-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+              <motion.span 
+                className="text-gradient inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >Bhuvan Kambley
+              </motion.span>
+          </motion.h1>
+          <motion.h1 
+            className="text-2xl md:text-3xl mt-4 font-display font-bold tracking-tight ml-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+              <motion.span 
+                className="text-accent/60"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                Designing the Future, One Line of Code at a Time
+              </motion.span>
           </motion.h1>
           
           <motion.p 
-            className="mt-6 text-lg leading-relaxed text-foreground/80 text-balance"
+            className="mt-6 text-base leading-relaxed text-foreground/80 text-balance"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            Actively seeking full-time Full Stack/ Software Developer opportunities starting March 2025, with a passion for Full Stack Development, Machine Learning and Cloud Technologies.
+            I'm currently building StockForge, a robust cloud-based solution pipeline for inventory and production management at Vegam Solutions. Designed for scalability and security, StockForge leverages AWS ECS for container orchestration, Django for backend logic, PostgreSQL for data persistence. The system supports features like BOM management, component traceability, and enterprise-grade analytics, helping manufacturing teams save time and reduce errors.
+
+            <br /><br />With a strong foundation in full-stack development and a growing passion for machine learning, I enjoy solving real-world problems through clean code, intelligent design, and scalable architectures. I'm particularly driven by opportunities that let me bridge backend logic with smart, user-friendly interfaces and AI-powered insights.
           </motion.p>
           
           {/* CTA Buttons */}
           <motion.div 
-            className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button 
-                className="rounded-full gap-2 font-medium" 
-                size="lg"
-                onClick={() => window.open('/bhuvankambley-dev.pdf', '_blank')}
+              className="mt-8 flex flex-wrap gap-4 justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+            >
+              <motion.div 
+                className="relative"
+                initial={{ 
+                  boxShadow: ".9px 1px 0 0 var(--accent), 1.5px 2px 0 0 var(--accent), 2.5px 3px 0 0 var(--accent), 3.5px 4px 0 0 var(--accent), 4.5px 5px 0 0 var(--accent), 5.5px 6px 0 0 var(--accent), 6.5px 7px 0 0 var(--accent), 7.5px 8px 0 0 var(--accent), 8.5px 9px 0 0 var(--accent), 9.5px 10px 0 0 var(--accent)"
+                }}
+                whileHover={{ 
+                  y: 6,
+                  x: 0,
+                  rotate: 0.25,
+                  boxShadow: "none",
+                  transition: {
+                    duration: 0.6,
+                    ease: "easeOut"
+                  }
+                }} 
+                whileTap={{ 
+                  y: 10,
+                  boxShadow: "none",
+                  transition: {
+                    duration: 0.1
+                  }
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                  transformOrigin: "center"
+                }}
               >
-                <FileText size={18} />
-                Resume
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button 
+                <Button 
+                  variant="outline"
+                  className="rounded-md border-2 border-accent text-accent font-medium text-base px-4 py-2 transition-all hover:bg-accent/10 hover:text-accent/80 hover:border-accent/30" 
+                  size="default"
+                  onClick={() => window.open('/bhuvankambley-dev.pdf', '_blank')}
+                >
+                  <FileText size={16} className="mr-2" />
+                  Resume
+                </Button>
+              </motion.div>
+            
+              {/* <Button 
                 variant="outline" 
                 className="rounded-full gap-2 font-medium" 
                 size="lg"
@@ -136,13 +209,13 @@ const Header: React.FC = () => {
               >
                 <Mail size={18} />
                 Contact Me
-              </Button>
-            </motion.div>
+              </Button> */}
+            
           </motion.div>
           
-          {/* Social Links */}
+          {/* Social Links - Mobile only (horizontal) */}
           <motion.div 
-            className="flex items-center gap-4 mt-8"
+            className="flex lg:hidden items-center gap-4 mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.1 }}

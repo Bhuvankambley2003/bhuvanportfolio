@@ -92,3 +92,15 @@
     opacity: 0.5;
   }
 }
+
+.cursor-follower {
+  pointer-events: none;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (pointer: coarse) {
+  .cursor-follower {
+    display: none; /* Hide on touch devices */
+  }
+}

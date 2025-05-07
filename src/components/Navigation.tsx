@@ -68,80 +68,99 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10',
-        scrolled ? 'py-3 bg-transparent backdrop-blur-md' : 'py-6 bg-transparent'
+    <>
+      {/* Add overlay for blurring background content when mobile menu is open */}
+      {menuOpen && (
+        <div 
+          className="fixed inset-0 bg-background/80 backdrop-blur-md z-40"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a
-          href="#home"
-          className="font-display text-xl font-semibold text-primary hover:opacity-80 transition-opacity"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
-        >
-          Bhuvan Kambley
-        </a>
+      <nav
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10',
+          scrolled ? 'py-3 bg-transparent backdrop-blur-md' : 'py-6 bg-transparent'
+        )}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <a
+            href="#home"
+            className="font-display text-2xl font-semibold text-primary hover:opacity-80 transition-opacity"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('home');
+            }}
+          >
+            B.
+          </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-1">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={cn(
-                'px-4 py-2 rounded-md text-sm font-medium transition-all relative',
-                activeSection === section.id
-                  ? 'text-accent'
-                  : 'text-foreground/80 hover:text-foreground'
-              )}
-            >
-              {section.label}
-              {activeSection === section.id && (
-                <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent rounded-full" />
-              )}
-            </button>
-          ))}
-          <div className="ml-2">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-1">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={cn(
+                  'px-4 py-2 rounded-md text-sm font-medium transition-all relative',
+                  activeSection === section.id
+                    ? 'text-accent'
+                    : 'text-foreground/80 hover:text-foreground group'
+                )}
+              >
+                <span className="relative">
+                  {section.label}
+                  {activeSection !== section.id && (
+                    <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300 ease-in-out" />
+                  )}
+                </span>
+                {activeSection === section.id && (
+                  <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent rounded-full" />
+                )}
+              </button>
+            ))}
+            <div className="ml-0 -translate-x-5">
+              <ThemeToggle />
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
+            <button
+              className="p-2 rounded-md text-foreground focus:outline-none"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden flex items-center space-x-2">
-          <ThemeToggle />
-          <button
-            className="p-2 rounded-md text-foreground focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-transparent shadow-lg px-6 py-4 flex flex-col space-y-2 animate-fade-in-up">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={cn(
-                'px-4 py-3 rounded-md text-left text-sm font-medium transition-all',
-                activeSection === section.id
-                  ? 'text-accent bg-accent/5'
-                  : 'text-foreground/80 hover:text-foreground hover:bg-foreground/5'
-              )}
-            >
-              {section.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </nav>
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md shadow-lg px-6 py-4 flex flex-col space-y-2 animate-fade-in-up z-50">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={cn(
+                  'px-4 py-3 rounded-md text-left text-sm font-medium transition-all relative',
+                  activeSection === section.id
+                    ? 'text-accent bg-accent/5'
+                    : 'text-foreground/80 hover:text-foreground hover:bg-foreground/5 group'
+                )}
+              >
+                <span className="relative">
+                  {section.label}
+                  {activeSection !== section.id && (
+                    <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300 ease-in-out" />
+                  )}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
+    </>
   );
 };
 

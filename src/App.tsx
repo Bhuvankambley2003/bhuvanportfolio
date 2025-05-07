@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Loader from "./components/Loader"; // Import the new Loader
+import CursorFollower from "./components/CursorFollower"; // Add this import
 import "./App.css";
 
 const queryClient = new QueryClient();
@@ -29,15 +30,18 @@ const App = () => {
           <Sonner />
           <AnimatePresence>
             {isLoading ? (
-              <Loader key="loader" />
+              <Loader key="loader" finishLoading={() => setIsLoading(false)} />
             ) : (
-              <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </BrowserRouter>
+              <>
+                <CursorFollower /> {/* Add the cursor follower */}
+                <BrowserRouter>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </BrowserRouter>
+              </>
             )}
           </AnimatePresence>
         </TooltipProvider>

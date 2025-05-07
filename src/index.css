@@ -274,13 +274,13 @@
 }
 
 .code-effect::before {
-  content: '</>'; 
+  content: ''; 
   position: absolute;
   font-family: 'JetBrains Mono', monospace;
   color: hsla(var(--accent), 0.05);
-  font-size: clamp(100px, 20vw, 300px);
-  right: -20px;
-  bottom: -60px;
+  font-size: clamp(50px, 10vw, 180px); /* Reduced from clamp(70px, 15vw, 220px) */
+  right: -10px;
+  bottom: -40px; /* Moved up slightly */
   line-height: 1;
   z-index: -1;
 }

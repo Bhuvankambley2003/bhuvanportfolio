@@ -215,7 +215,7 @@ const Projects: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-display font-bold mt-4"
           >
-            My Recent Work
+            <span className="mr-6">02.</span>My Recent Work
           </motion.h2>
           <motion.div 
             initial={{ scaleX: 0 }}
@@ -248,7 +248,7 @@ const Projects: React.FC = () => {
               className="text-xl font-semibold mb-6 border-b border-foreground/10 pb-2"
               variants={itemVariants}
             >
-              Featured Projects
+              <span className="mr-6"></span>Featured Projects
             </motion.h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.filter(p => p.featured).map((project, index) => (
@@ -402,7 +402,7 @@ const Projects: React.FC = () => {
             className="text-xl font-semibold mb-6 border-b border-foreground/10 pb-2"
             variants={itemVariants}
           >
-            All Projects
+            <span className="mr-6"></span>All Projects
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.filter(p => !p.featured).map((project, index) => (
