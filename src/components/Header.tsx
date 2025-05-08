@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-16 code-effect"
+      className="relative min-h-screen flex flex-col justify-center items-center px-3 sm:px-4 md:px-6 pt-20 pb-16 code-effect"
     >
       {/* Social icons with vertical line starting from bottom */}
       <motion.div 
@@ -83,12 +83,12 @@ const Header: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div 
-            className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-medium tracking-wider uppercase rounded-full bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/10 text-accent"
+            className="inline-flex items-center gap-1 px-3 py-1 mb-4 text-[10px] font-medium tracking-wider uppercase rounded-full bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/10 text-accent sm:gap-2 sm:px-4 sm:py-1.5 sm:mb-6 sm:text-xs"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse sm:w-2 sm:h-2"></span>
             <span>Software Engineer</span>
           </motion.div>
           

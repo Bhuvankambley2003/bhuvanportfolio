@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { Award, Building2, Calendar, ChevronRight, Download, Link as LinkIcon, Mail, MapPin } from "lucide-react";
+import { Award, Building2, Calendar, ChevronRight, Download, LinkIcon, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-// import { ThemeToggle } from "@/components/theme-toggle";
 
 const Resume = () => {
   // Experience data
@@ -105,38 +104,27 @@ const Resume = () => {
 
   // Achievements data
   const achievements = [
-    // {
-    //   title: "Google CodeJam Finalist",
-    //   description: "Reached the final round of Google's global coding competition, demonstrating exceptional problem-solving skills and algorithmic thinking."
-    // },
-    // {
-    //   title: "Open Source Contributor",
-    //   description: "Active contributor to several open-source projects, including contributions to Django and TensorFlow libraries."
-    // },
     {
       title: "Runner-up in National Level Hackathon 2024",
       description: "Competing among 70 teams in PES Mandya, we designed the Groupie app, which featured real-time chat for doubt solving, file sharing, and a scheduling calendar."
     }
   ];
 
-  // Component for About Me section
   // AboutMeSection component
-// AboutMeSection component
-// AboutMeSection component
-const AboutMeSection = () => {
-  const aboutMeData = {
-    name: "Bhuvan Kambley",
-    title: "Computer Science Engineer",
-    bio: "I'm **Bhuvan Kambley**, a highly driven **Full-Stack Developer** with a deep curiosity for Machine Learning and Artificial Intelligence. Currently pursuing my Bachelor's degree in Computer Science and Engineering at the National Institute of Engineering, Mysuru. I bring together academic excellence with hands-on industry experience across software engineering and intelligent systems.\n\nAt Vegam Solutions, I’m developing **StockForge**—a cloud-based solution designed to streamline inventory and production management for manufacturing enterprises.\nI take pride in being an **enthusiastic and conscientious team player** with exceptional communication and soft skills. I am passionate about learning new skills, keeping up with emerging tech trends, and identifying the best technologies to enhance our solutions. Furthermore, I believe in giving back to society and actively participate in volunteering activities to create a positive impact.",
-    image: "/bk.jpg",
-    location: "Bengaluru, India",
-    experience: "Intern",
-    availability: "Full Time",
-    website: "https://bhuvankambley-portfolio.vercel.app",
-  };
+  const AboutMeSection = () => {
+    const aboutMeData = {
+      name: "Bhuvan Kambley",
+      title: "Computer Science Engineer",
+      bio: "I'm **Bhuvan Kambley**, a highly driven **Full-Stack Developer** with a deep curiosity for Machine Learning and Artificial Intelligence. Currently pursuing my Bachelor's degree in Computer Science and Engineering at the National Institute of Engineering, Mysuru. I bring together academic excellence with hands-on industry experience across software engineering and intelligent systems.\n\nAt Vegam Solutions, I'm developing **StockForge**—a cloud-based solution designed to streamline inventory and production management for manufacturing enterprises.\nI take pride in being an **enthusiastic and conscientious team player** with exceptional communication and soft skills. I am passionate about learning new skills, keeping up with emerging tech trends, and identifying the best technologies to enhance our solutions. Furthermore, I believe in giving back to society and actively participate in volunteering activities to create a positive impact.",
+      image: "/bk.jpg",
+      location: "Bengaluru, India",
+      experience: "Intern",
+      availability: "Full Time",
+      website: "https://bhuvankambley-portfolio.vercel.app",
+    };
 
-  return (
-    <div className="glass p-8 rounded-2xl mb-16 bg-foreground/[0.02] border border-foreground/10 backdrop-blur-sm w-full">
+    return (
+      <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl mb-16 bg-foreground border border-foreground/10 backdrop-blur-sm w-full">
       <div className="flex flex-col-reverse md:flex-row gap-8 items-center md:items-start ">
         {/* Left Side - Bio and Text Content */}
         <motion.div 
@@ -147,7 +135,18 @@ const AboutMeSection = () => {
         >
           <h1 className="heading-md text-4xl font-medium tracking-tight ">
             <span className="mr-6">01.</span>About Me
-          </h1>          
+          </h1> 
+
+          <div className="flex flex-wrap gap-y-2 gap-x-6 text-sm text-foreground/70 mt-3 justify-center">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    <span>{aboutMeData.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Building2 className="w-4 h-4" />
+                    <span>{aboutMeData.experience}</span>
+                  </div>
+          </div>        
           {/* <motion.div 
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -218,41 +217,39 @@ const AboutMeSection = () => {
 
 
   // ResumeSection component
-  const ResumeSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
+  const ResumeSection = ({ title, children, id }: { title: string, children: React.ReactNode, id?: string }) => {
     return (
       <motion.section 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="mb-24 max-w-2xl mx-auto"
-        id="ResumeSection"
+        className="mb-20"
+        id={id || title.toLowerCase().replace(/\s+/g, '-')}
       >
-        
-        <div className="flex flex-col items-center mb-10 text-center">
+        <div className="mb-8">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-display mt-4"
+            className="text-3xl font-semibold tracking-tight"
           >
-            <span className="mr-6"></span>{title}
+            {title}
           </motion.h2>
           {/* <motion.div 
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-20 h-1 bg-gradient-to-r from-accent to-accent/50 mx-auto rounded-full mb-6 origin-left"
+            className="w-20 h-1 bg-primary/50 rounded-full mt-3 origin-left"
           /> */}
         </div>
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="space-y-8"
         >
           {children}
         </motion.div>
@@ -273,47 +270,32 @@ const AboutMeSection = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.5, 
-          delay: index * 0.1,
-          ease: [0.22, 1, 0.36, 1]
-        }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="group bg-secondary/30 hover:bg-secondary/60 rounded-xl p-8 transition-all duration-500"
+        className="group bg-foreground/[0.02] hover:bg-foreground/[0.05] rounded-xl p-6 transition-all duration-300 border border-foreground/10"
       >
-        <div className="flex flex-col space-y-4">
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <h3 className="font-medium text-xl tracking-tight group-hover:text-primary transition-colors duration-300 text-left">{title}</h3>
-              <div className="flex items-center mt-1 text-primary/80 font-medium">
-                {/* {icon || <Building2 className="w-4 h-4 mr-2 opacity-70" />} */}
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h3 className="font-semibold text-xl tracking-tight text-primary group-hover:text-primary/90 transition-color text-left">{title}</h3>
+              <div className="flex items-center mt-1 text-foreground/70">
+                {/* {icon || <Building2 className="w-4 h-4 mr-2" />} */}
                 <span>{subtitle}</span>
               </div>
             </div>
-            <div className="flex items-center space-x-1 bg-primary/5 text-sm text-foreground/70 px-3 py-1.5 rounded-full">
-              <Calendar className="w-3.5 h-3.5 mr-1 opacity-70" />
+            <div className="flex items-center space-x-1 bg-primary/5 text-sm text-foreground/80 px-3 py-1.5 rounded-full self-start">
+              <Calendar className="w-3.5 h-3.5 mr-1" />
               <span>{period}</span>
             </div>
           </div>
           
-          <p className="text-foreground/70 text-sm leading-relaxed group-hover:text-foreground/90 transition-colors duration-300 text-left">{description}</p>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex items-center text-sm text-primary/80 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          >
-            {/* <span className="mr-1">Learn more</span> */}
-            {/* <ChevronRight className="w-4 h-4" /> */}
-          </motion.div>
+          <p className="text-foreground/70 leading-relaxed text-left text-base">{description}</p>
         </div>
       </motion.div>
     );
   };
 
-  // SkillCategory component
+  // SkillCategory component with pill-style skills
   const SkillCategory = ({ title, skills, index }: { 
     title: string, 
     skills: { name: string, level: number }[], 
@@ -321,34 +303,24 @@ const AboutMeSection = () => {
   }) => {
     return (
       <motion.div 
-        className="bg-foreground/[0.02] border border-foreground/5 p-6 rounded-xl backdrop-blur-sm"
+        className="bg-foreground/[0.02] border border-foreground/10 p-6 rounded-xl backdrop-blur-sm"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.5, 
-          delay: index * 0.1,
-          ease: [0.22, 1, 0.36, 1]
-        }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
       >
-        <h3 className="text-lg font-semibold mb-4 text-center">{title}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <h3 className="text-lg font-medium mb-5 text-primary/90">{title}</h3>
+        <div className="flex flex-wrap gap-2">
           {skills.map((skill, idx) => (
             <motion.div 
               key={idx}
-              className="text-xs md:text-sm font-medium text-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.3, 
-                delay: 0.1 + idx * 0.05,
-                ease: [0.22, 1, 0.36, 1]
-              }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 + idx * 0.05 }}
               viewport={{ once: true }}
+              className="bg-foreground/[0.05] hover:bg-foreground/[0.08] border border-foreground/10 px-3 py-1.5 rounded-full text-sm transition-colors"
             >
-              <span className="text-sm font-medium  rounded-lg inline-block min-w-[120px]">
-                {skill.name}
-              </span>
+              {skill.name}
             </motion.div>
           ))}
         </div>
@@ -366,21 +338,17 @@ const AboutMeSection = () => {
   }) => {
     return (
       <motion.div 
-        className="glass p-6 rounded-xl flex gap-4"
+        className="bg-foreground/[0.02] border border-foreground/10 p-6 rounded-xl flex gap-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.5, 
-          delay: index * 0.1,
-          ease: [0.22, 1, 0.36, 1]
-        }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
       >
         <div className="bg-primary/10 rounded-full p-3 h-fit">
           <Award className="text-primary w-6 h-6" />
         </div>
         <div>
-          <h3 className="font-semibold text-lg mb-1">{title}</h3>
+          <h3 className="font-semibold text-xl mb-2">{title}</h3>
           {(issuer || date) && (
             <div className="flex flex-wrap gap-2 text-sm text-foreground/70 mb-2">
               {issuer && <span>{issuer}</span>}
@@ -388,131 +356,180 @@ const AboutMeSection = () => {
               {date && <span>{date}</span>}
             </div>
           )}
-          {description && <p className="text-sm text-foreground/70">{description}</p>}
+          {description && <p className="text-foreground/70 leading-relaxed">{description}</p>}
         </div>
       </motion.div>
     );
   };
 
+  // Navigation component 
+  const Navigation = () => {
+    const sections = [
+      { name: "About", href: "#about" },
+      { name: "Experience", href: "#experience" },
+      { name: "Education", href: "#education" },
+      { name: "Skills", href: "#skills" },
+      { name: "Certifications", href: "#certifications" },
+      { name: "Achievements", href: "#achievements" },
+    ];
+
+    return (
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="sticky top-4 z-50 flex justify-center mx-auto mb-10 px-4"
+      >
+        <nav className="bg-foreground/[0.03] backdrop-blur-lg border border-foreground/10 rounded-full py-2 px-3 shadow-lg flex items-center overflow-x-auto max-w-full no-scrollbar">
+          <ul className="flex space-x-1 sm:space-x-2">
+            {sections.map((section, index) => (
+              <li key={index}>
+                <a 
+                  href={section.href}
+                  className="px-3 py-1.5 text-sm font-medium text-foreground/70 hover:text-foreground/100 rounded-full hover:bg-foreground/[0.06] transition-colors whitespace-nowrap"
+                >
+                  {section.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </motion.div>
+    );
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Change max-w-7xl to max-w-6xl to reduce the main container width */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Hero Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="py-16 md:py-24 text-center"
-        >
-        </motion.div>
-        <motion.span 
-                    initial={{ opacity: 0, scale: 0.9 }}  
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="inline-block px-3 py-1 text-xs font-medium tracking-wider bg-blue-500/10 text-accent uppercase rounded-full bg-accent/10 mb-4"
-                  >
-                    Resume
-        </motion.span>
-        {/* Change max-w-5xl to max-w-4xl for the content container */}
+    <div className="min-h-screen bg-gradient-to-b from-background to-foreground/[0.02] pb-20">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-5xl mx-auto px-4 sm:px-6 pt-10"
+      >
+        {/* Header with title */}
+        {/* <div className="text-center mb-12">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}  
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="inline-block px-3 py-1.5 text-xs font-medium tracking-wider bg-primary/10 text-primary uppercase rounded-full mb-4"
+          >
+            Professional Resume
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-semibold tracking-tight"
+          >
+            Bhuvan Kambley
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-3 text-xl text-foreground/70"
+          >
+            Computer Science Engineer & Full-Stack Developer
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center gap-4 mt-6"
+          >
+            <Button className="rounded-full gap-2 bg-primary hover:bg-primary/90">
+              <Mail className="w-4 h-4" />
+              Contact Me
+            </Button>
+            <Button variant="outline" className="rounded-full gap-2 border-primary/30 text-primary hover:bg-primary/10">
+              <Download className="w-4 h-4" />
+              Download CV
+            </Button>
+          </motion.div>
+        </div> */}
+        
+        {/* Navigation */}
+        <Navigation />
+        
         <div className="max-w-4xl mx-auto">
-          <AboutMeSection />
+          {/* About section with ID for navigation */}
+          <div id="about">
+            <AboutMeSection />
+          </div>
 
-          <ResumeSection title="Experience">
-            <Card className="p-6 bg-foreground/[0.02] border border-foreground/10 shadow-lg rounded-2xl backdrop-blur-sm">
-              <div className="space-y-8">
-                {experiences.map((experience, index) => (
-                  <TimelineItem 
-                    key={index}
-                    title={experience.title}
-                    subtitle={experience.subtitle}
-                    period={experience.period}
-                    description={experience.description}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </Card>
-          </ResumeSection>
-
-          <ResumeSection title="Education">
-            <Card className="p-6 bg-foreground/[0.02] border border-foreground/10 shadow-lg rounded-2xl backdrop-blur-sm">
-              <div className="space-y-8">
-                {education.map((edu, index) => (
-                  <TimelineItem 
-                    key={index}
-                    title={edu.title}
-                    subtitle={edu.subtitle}
-                    period={edu.period}
-                    description={edu.description}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </Card>
-          </ResumeSection>
-
-          <ResumeSection title="Skills">
-            <Card className="p-6 bg-foreground/[0.02] border border-foreground/10 shadow-lg rounded-2xl backdrop-blur-sm">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {skillCategories.map((category, index) => (
-                  <SkillCategory 
-                    key={index}
-                    title={category.title}
-                    skills={category.skills}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </Card>
-          </ResumeSection>
-
-          <ResumeSection title="Certifications">
-            <Card className="p-6 bg-foreground/[0.02] border border-foreground/10 shadow-lg rounded-2xl backdrop-blur-sm">
-              <div className="space-y-8">
-                <TimelineItem
-                  title="AWS Knowledge: Architecting"
-                  subtitle="Amazon Web Services"
-                  period="2025"
-                  description="Cloud architecture fundamentals and best practices on AWS platform."
-                  index={0}
-                  // icon={<Award size={14} />}
+          <ResumeSection title="Experience" id="experience">
+            <div className="space-y-6">
+              {experiences.map((experience, index) => (
+                <TimelineItem 
+                  key={index}
+                  title={experience.title}
+                  subtitle={experience.subtitle}
+                  period={experience.period}
+                  description={experience.description}
+                  index={index}
                 />
-                
-                <TimelineItem
-                  title="IBM Data Analysis"
-                  subtitle="IBM"
-                  period="2024"
-                  description="Professional data analysis techniques and tools certified by IBM."
-                  index={1}
-                  // icon={<Award size={14} />}
-                />
-                
-                <TimelineItem
-                  title="Google Data Data Everywhere"
-                  subtitle="Google"
-                  period="2023"
-                  description="Data analytics fundamentals and practices by Google."
-                  index={2}
-                  // icon={<Award size={14} />}
-                />
-                
-                <div className="mt-10 flex justify-center">
-                  <Button
-                    variant="outline"
-                    className="rounded-full gap-2 font-medium hover:bg-accent/10 hover:text-accent border-accent/20 transition-colors mb-8"
-                    onClick={() => window.open("https://www.credly.com/users/bhuvan-kambley", "_blank")}
-                  >
-                    {/* <Award size={18} /> */}
-                    View All Badges on Credly
-                  </Button>
-                </div>
-              </div>
-            </Card>
+              ))}
+            </div>
           </ResumeSection>
 
-          <ResumeSection title="Achievements">
+          <ResumeSection title="Education" id="education">
+            <div className="space-y-6">
+              {education.map((edu, index) => (
+                <TimelineItem 
+                  key={index}
+                  title={edu.title}
+                  subtitle={edu.subtitle}
+                  period={edu.period}
+                  description={edu.description}
+                  index={index}
+                />
+              ))}
+            </div>
+          </ResumeSection>
+
+          <ResumeSection title="Skills" id="skills">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {skillCategories.map((category, index) => (
+                <SkillCategory 
+                  key={index}
+                  title={category.title}
+                  skills={category.skills}
+                  index={index}
+                />
+              ))}
+            </div>
+          </ResumeSection>
+
+          <ResumeSection title="Certifications" id="certifications">
+            <div className="space-y-6">
+              {certifications.map((cert, index) => (
+                <TimelineItem
+                  key={index}
+                  title={cert.title}
+                  subtitle={cert.issuer}
+                  period={cert.date}
+                  description={cert.description}
+                  index={index}
+                  icon={<Award className="w-4 h-4 mr-2" />}
+                />
+              ))}
+              
+              <div className="mt-8 flex justify-center">
+                <Button
+                  variant="outline"
+                  className="rounded-full gap-2 font-medium hover:bg-primary/10 hover:text-primary border-primary/20 transition-colors"
+                  onClick={() => window.open("https://www.credly.com/users/bhuvan-kambley", "_blank")}
+                >
+                  <Award className="w-4 h-4" />
+                  View All Badges on Credly
+                </Button>
+              </div>
+            </div>
+          </ResumeSection>
+
+          <ResumeSection title="Achievements" id="achievements">
             <div className="space-y-6">
               {achievements.map((achievement, index) => (
                 <AchievementCard
@@ -524,10 +541,13 @@ const AboutMeSection = () => {
               ))}
             </div>
           </ResumeSection>
+          
+          
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 export default Resume;
+ 
