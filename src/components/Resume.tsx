@@ -124,7 +124,8 @@ const Resume = () => {
     };
 
     return (
-      <div className="glass p-4 sm:p-6 md:p-8 rounded-2xl mb-16 bg-foreground border border-foreground/10 backdrop-blur-sm w-full">
+      <section id="ResumeSection" className="mb-20">
+      <div id="ResumeSection" className="glass p-4 sm:p-6 md:p-8 rounded-2xl mb-16 bg-foreground border border-foreground/10 backdrop-blur-sm w-full">
       <div className="flex flex-col-reverse md:flex-row gap-8 items-center md:items-start ">
         {/* Left Side - Bio and Text Content */}
         <motion.div 
@@ -212,6 +213,7 @@ const Resume = () => {
         </motion.div>
       </div>
     </div>
+  </section>
   );
 };
 
