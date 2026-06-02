@@ -6,15 +6,15 @@ const Resume = () => {
   // ========================
   // Data Section
   // ========================
-  
+
   const summary = "Detail-oriented Computer Science Engineer and Full-Stack Developer with expertise in cloud-based solutions, machine learning, and modern web development frameworks. Passionate about leveraging technology to create scalable and efficient solutions with demonstrable outcomes.";
 
   // Experience data
   const experiences = [
-     {
+    {
       title: "Cloud Support Engineer",
       subtitle: "Akamai Technologies",
-      period: "Jan 2024 - Present",
+      period: "Nov 2025 - Present",
       bullets: [
         "Orchestrated the resolution of mission-critical technical escalations for Global 2000 clients, utilizing advanced packet analysis (Wireshark) and log inspection to diagnose complex latency and availability bottlenecks within the Intelligent Edge Platform.",
         "Fortified enterprise security architectures by configuring and fine-tuning Akamai Kona Site Defender and Web Application Firewall (WAF) rules, successfully mitigating high-volume DDoS attacks and minimizing false positive rates.",
@@ -33,12 +33,12 @@ const Resume = () => {
         "Developed a thorough understanding of the core architectural principles and technical differentiation of the Akamai Intelligent Edge Platform",
         "Engineered and deployed sophisticated configurations to significantly enhance the security posture and performance efficiency for client digital properties utilizing the Akamai platform.",
         "Engaged in effective collaboration with cross-functional engineering and sales teams to ensure the timely and successful delivery of high-quality technical solutions."
-           ]
+      ]
     },
     {
       title: "SDE Intern",
       subtitle: "Vegam Solutions Delaware",
-      period: "Mar 2025 - Sep 2025", 
+      period: "Mar 2025 - Sep 2025",
       bullets: [
         "Led end-to-end development of StockForge, a cloud-based inventory management solution",
         "Utilized Django, AWS, and PostgreSQL to build a full-stack solution",
@@ -70,7 +70,7 @@ const Resume = () => {
       title: "Class 5 - Class 12",
       subtitle: "Sri Vidya Kendra",
       period: "2014 - 2021",
-      bullets:[ "CBSE board with focus on Mathematics, Science and Computer Science"]
+      bullets: ["CBSE board with focus on Mathematics, Science and Computer Science"]
     }
   ];
 
@@ -127,9 +127,9 @@ const Resume = () => {
         "It enables real-time doubt-solving through chat, file sharing, and a built-in calendar for collaborative scheduling, streamlining the study experience.",
         "Focused on building an ecosystem for students who prioritize academics, supporting effective peer-to-peer learning and resource sharing.",
         "Features include creation and joining of study groups, seamless communication among members, and tools for managing group study sessions.",
-        
+
       ],
-      
+
     }
   ];
 
@@ -158,15 +158,15 @@ const Resume = () => {
         {/* Professional Header Section */}
         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
           {/* Profile Photo with Professional Styling */}
-          <div 
-              className="text-foreground/80 leading-relaxed text-base md:text-[15px] text-center md:text-left"
-              dangerouslySetInnerHTML={{ 
-                __html: aboutMeData.bio
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold text-[#06bfff]">$1</strong>')
-                  .replace(/\n\n/g, '<br /><br />') 
-              }}
-            />
-          <motion.div 
+          <div
+            className="text-foreground/80 leading-relaxed text-base md:text-[15px] text-center md:text-left"
+            dangerouslySetInnerHTML={{
+              __html: aboutMeData.bio
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold text-[#06bfff]">$1</strong>')
+                .replace(/\n\n/g, '<br /><br />')
+            }}
+          />
+          <motion.div
             className="flex-shrink-0 relative"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -178,18 +178,18 @@ const Resume = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/5 rounded-xl p-[2px] z-0">
                 <div className="w-full h-full bg-background/50 backdrop-blur-sm rounded-xl"></div>
               </div>
-              
+
               {/* Actual image with professional framing */}
               <div className="absolute inset-[3px] overflow-hidden rounded-lg z-10">
-                <img 
-                  src={aboutMeData.image} 
+                <img
+                  src={aboutMeData.image}
                   alt={`${aboutMeData.name} - ${aboutMeData.title}`}
                   className="w-full h-full object-cover aspect-[3/4] transition-transform duration-300 hover:scale-105"
                 />
               </div>
             </div>
           </motion.div>
-          
+
           {/* Professional Bio Section */}
           <div className="flex-1">
             {/* Name and Title with clear hierarchy */}
@@ -197,7 +197,7 @@ const Resume = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{aboutMeData.name}</h2>
               <p className="text-lg md:text-xl text-primary/90 font-medium mt-1">{aboutMeData.title}</p>
             </div> */}
-            
+
             {/* Professional Details - Organized for quick scanning */}
             {/* <div className="flex flex-wrap gap-y-3 gap-x-5 text-sm mb-5 justify-center md:justify-start">
               <div className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
@@ -213,10 +213,10 @@ const Resume = () => {
                 <span>{aboutMeData.availability}</span>
               </div>
             </div> */}
-            
+
             {/* Professional Bio Text - Formatted for readability */}
-            
-            
+
+
             {/* Professional Contact Links */}
             {/* <div className="mt-5 flex flex-wrap gap-3 justify-center md:justify-start">
               <a 
@@ -313,22 +313,22 @@ const Resume = () => {
             <h3 className="font-medium text-foreground">Problem Solving</h3>
             <p className="text-sm text-foreground/70 mt-1">Analytical approach to technical challenges</p>
           </div>
-        </div> */} 
+        </div> */}
       </div>
     );
   };
 
   // TimelineItem component
-  const TimelineItem = ({ title, subtitle, period, description, bullets, index }: { 
-    title: string, 
-    subtitle: string, 
-    period: string, 
-    description?: string, 
+  const TimelineItem = ({ title, subtitle, period, description, bullets, index }: {
+    title: string,
+    subtitle: string,
+    period: string,
+    description?: string,
     bullets?: string[],
     index: number
   }) => {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -347,37 +347,37 @@ const Resume = () => {
               <span>{period}</span>
             </div>
           </div>
-          
+
           {description && (
             <p className="text-foreground/70 leading-relaxed text-left text-base">{description}</p>
           )}
 
-        {bullets && bullets.length > 0 && (
-        <ul className="space-y-2 text-foreground/80 ml-2">
-          {bullets.map((bullet, idx) => (
-            <li key={idx} className="text-left text-sm pl-6 relative">
-              <span className="absolute left-0 top-[0.4em] w-0 h-0 
+          {bullets && bullets.length > 0 && (
+            <ul className="space-y-2 text-foreground/80 ml-2">
+              {bullets.map((bullet, idx) => (
+                <li key={idx} className="text-left text-sm pl-6 relative">
+                  <span className="absolute left-0 top-[0.4em] w-0 h-0 
                 border-t-[5px] border-t-transparent
                 border-b-[5px] border-b-transparent
                 border-l-[6px] border-l-primary/80"></span>
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      )}
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </motion.div>
     );
   };
 
   // SkillCategory component with pill-style skills
-  const SkillCategory = ({ title, skills, index }: { 
-    title: string, 
-    skills: { name: string, level: number }[], 
-    index: number 
+  const SkillCategory = ({ title, skills, index }: {
+    title: string,
+    skills: { name: string, level: number }[],
+    index: number
   }) => {
     return (
-      <motion.div 
+      <motion.div
         className="bg-foreground/[0.02] border border-foreground/10 p-6 rounded-xl backdrop-blur-sm mb-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -386,7 +386,7 @@ const Resume = () => {
         <h3 className="text-lg font-medium mb-5 text-primary/90">{title}</h3>
         <div className="flex flex-wrap gap-2">
           {skills.map((skill, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -402,13 +402,13 @@ const Resume = () => {
   };
 
   // AchievementCard component
-  const AchievementCard = ({ title, description, index }: { 
-    title: string, 
-    description?: string, 
-    index: number 
+  const AchievementCard = ({ title, description, index }: {
+    title: string,
+    description?: string,
+    index: number
   }) => {
     return (
-      <motion.div 
+      <motion.div
         className="bg-foreground/[0.02] border border-foreground/10 p-6 rounded-xl flex gap-5 mb-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -423,22 +423,22 @@ const Resume = () => {
         </div>
       </motion.div>
     );
-  }; 
+  };
 
   // ========================
   // Main Component Logic
   // ========================
-  
+
   // Section definitions
   const sections = [
     { id: "about", title: "About Me", component: <AboutMeSection /> },
-    { 
-      id: "experience", 
-      title: "Experience", 
+    {
+      id: "experience",
+      title: "Experience",
       component: (
         <div>
           {experiences.map((experience, index) => (
-            <TimelineItem 
+            <TimelineItem
               key={index}
               title={experience.title}
               subtitle={experience.subtitle}
@@ -448,15 +448,15 @@ const Resume = () => {
             />
           ))}
         </div>
-      ) 
+      )
     },
-    { 
-      id: "education", 
-      title: "Education", 
+    {
+      id: "education",
+      title: "Education",
       component: (
         <div>
           {education.map((edu, index) => (
-            <TimelineItem 
+            <TimelineItem
               key={index}
               title={edu.title}
               subtitle={edu.subtitle}
@@ -466,15 +466,15 @@ const Resume = () => {
             />
           ))}
         </div>
-      ) 
+      )
     },
-    { 
-      id: "skills", 
-      title: "Skills", 
+    {
+      id: "skills",
+      title: "Skills",
       component: (
         <div>
           {skillCategories.map((category, index) => (
-            <SkillCategory 
+            <SkillCategory
               key={index}
               title={category.title}
               skills={category.skills}
@@ -482,11 +482,11 @@ const Resume = () => {
             />
           ))}
         </div>
-      ) 
+      )
     },
-    { 
-      id: "achievements", 
-      title: "Achievements", 
+    {
+      id: "achievements",
+      title: "Achievements",
       component: (
         <div>
           {achievements.map((achievement, index) => (
@@ -500,115 +500,115 @@ const Resume = () => {
             />
           ))}
         </div>
-      ) 
+      )
     }
   ];
 
   // State for active tab
   const [activeTabId, setActiveTabId] = useState(0);
-  
+
   // Refs for tab elements and animations
   const tabsRef = useRef([]);
-  
+
   // Function to handle tab click
   const handleTabClick = (index) => {
     setActiveTabId(index);
   };
 
   return (
-  <div id="ResumeSection" className="min-h-screen py-16 px-4 mt-32">
-    <div className="max-w-5xl mx-auto">
-      {/* Title */}
-      <h1 className="text-3xl font-bold mb-12 text-center text-primary">
-        <span>02.</span>
-        <span className="inline-block ml-5 font-bold">Resume</span>
-      </h1>
-      
-      {/* Main Content with Tab Layout */}
-      <div className="flex flex-col md:flex-row gap-2">
-        {/* 
+    <div id="ResumeSection" className="min-h-screen py-16 px-4 mt-32">
+      <div className="max-w-5xl mx-auto">
+        {/* Title */}
+        <h1 className="text-3xl font-bold mb-12 text-center text-primary">
+          <span>02.</span>
+          <span className="inline-block ml-5 font-bold">Resume</span>
+        </h1>
+
+        {/* Main Content with Tab Layout */}
+        <div className="flex flex-col md:flex-row gap-2">
+          {/* 
           Tab List - Left Side
           Adjust width by changing "md:w-64" to your preferred size
         */}
-        <div className="md:w-53 relative">
-          <div className="sticky top-24">
-            {/* Tab buttons */}
-            <div 
-              className="flex md:flex-col overflow-x-auto md:overflow-visible no-scrollbar"
-              role="tablist"
-            >
-              {sections.map((section, index) => (
-                <button
-                  key={section.id}
-                  ref={el => (tabsRef.current[index] = el)}
-                  onClick={() => handleTabClick(index)}
-                  className={`
+          <div className="md:w-53 relative">
+            <div className="sticky top-24">
+              {/* Tab buttons */}
+              <div
+                className="flex md:flex-col overflow-x-auto md:overflow-visible no-scrollbar"
+                role="tablist"
+              >
+                {sections.map((section, index) => (
+                  <button
+                    key={section.id}
+                    ref={el => (tabsRef.current[index] = el)}
+                    onClick={() => handleTabClick(index)}
+                    className={`
                     relative flex items-center text-left py-3 px-4 border-l-2 transition-all duration-300
-                    ${activeTabId === index 
-                      ? "font-semibold border-l-primary text-foreground" 
-                      : "border-l-foreground/10 text-foreground/60 hover:text-foreground/90 hover:border-l-foreground/30"
-                    }
+                    ${activeTabId === index
+                        ? "font-semibold border-l-primary text-foreground"
+                        : "border-l-foreground/10 text-foreground/60 hover:text-foreground/90 hover:border-l-foreground/30"
+                      }
                   `}
-                  role="tab"
-                  tabIndex={activeTabId === index ? 0 : -1}
-                  aria-selected={activeTabId === index}
-                  aria-controls={`panel-${index}`}
-                >
-                  <span className="whitespace-nowrap">{section.title}</span>
-                </button>
-              ))}
-              
-              {/* Highlight indicator - Adjust height by changing "h-[50px]" */}
-              <div 
-                className="absolute left-0 w-0.5 h-[10px] bg-primary rounded-full transition-transform duration-300 hidden md:block"
-                style={{ 
-                  transform: `translateY(${activeTabId * 50}px)`, // Adjust the multiplier to match your tab height
-                  top: '12px' // Adjust to vertically center the highlight in your tabs
-                }}
-              />
+                    role="tab"
+                    tabIndex={activeTabId === index ? 0 : -1}
+                    aria-selected={activeTabId === index}
+                    aria-controls={`panel-${index}`}
+                  >
+                    <span className="whitespace-nowrap">{section.title}</span>
+                  </button>
+                ))}
+
+                {/* Highlight indicator - Adjust height by changing "h-[50px]" */}
+                <div
+                  className="absolute left-0 w-0.5 h-[10px] bg-primary rounded-full transition-transform duration-300 hidden md:block"
+                  style={{
+                    transform: `translateY(${activeTabId * 50}px)`, // Adjust the multiplier to match your tab height
+                    top: '12px' // Adjust to vertically center the highlight in your tabs
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* 
+
+          {/* 
           Tab Panels - Right Side 
           Adjust the padding and styling to your preference
         */}
-        <div className="flex-1 bg-foreground/[0.01] rounded-xl border border-foreground/5 p-6 md:p-8 text-sm">
-          {sections.map((section, index) => (
-            <div
-              key={section.id}
-              id={`panel-${index}`}
-              role="tabpanel"
-              tabIndex={activeTabId === index ? 0 : -1}
-              aria-labelledby={`tab-${index}`}
-              aria-hidden={activeTabId !== index}
-              className={`
+          <div className="flex-1 bg-foreground/[0.01] rounded-xl border border-foreground/5 p-6 md:p-8 text-sm">
+            {sections.map((section, index) => (
+              <div
+                key={section.id}
+                id={`panel-${index}`}
+                role="tabpanel"
+                tabIndex={activeTabId === index ? 0 : -1}
+                aria-labelledby={`tab-${index}`}
+                aria-hidden={activeTabId !== index}
+                className={`
                 transition-opacity duration-300 ease-in-out
                 ${activeTabId === index ? 'opacity-100' : 'absolute opacity-0 invisible'}
               `}
-            >
-              {activeTabId === index && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {/* Section title for mobile - hidden on desktop */}
-                  <h2 className="text-2xl font-bold mb-6 text-primary md:hidden">
-                    {section.title}
-                  </h2>
-                  
-                  {/* Section content */}
-                  {section.component}
-                </motion.div>
-              )}
-            </div>
-          ))}
+              >
+                {activeTabId === index && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {/* Section title for mobile - hidden on desktop */}
+                    <h2 className="text-2xl font-bold mb-6 text-primary md:hidden">
+                      {section.title}
+                    </h2>
+
+                    {/* Section content */}
+                    {section.component}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  </div>
   );
 };
 
